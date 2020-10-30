@@ -1,26 +1,24 @@
 package ru.hackservice;
 
-import org.testng.annotations.Test;
+import static org.junit.Assert.*;
 
-import static org.testng.Assert.*;
+import org.junit.Test;
 
 public class CashbackHackServiceTest {
-
     CashbackHackService service = new CashbackHackService();
 
     @Test
     public void testEmptyAmount() {
-        assertEquals(service.remain(0), 1000);
+        assertEquals(1000, service.remain(0));
     }
 
     @Test
     public void testAmount() {
-        assertEquals(service.remain(900), 100);
+        assertEquals(100, service.remain(900));
     }
 
     @Test
     public void testTopLimit() {
-        assertEquals(service.remain(1000), 0);
+        assertEquals( 0, service.remain(1000));
     }
-
 }
